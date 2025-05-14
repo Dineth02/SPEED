@@ -27,18 +27,26 @@ const LoginpageComponent = () => {
     hash.update(username,'utf-8'); 
     hash.end();
     hash.digest().toString('base64');
+    //better way to do it is have the salt not base on the username (or even the hash of a username)
     pbkdf2(password,hash.digest().toString('base64'), 100000, 64, 'sha512', (err, derivedKey) => {
       if (err) throw err;
       console.log(hash.digest().toString('base64'));
       console.log(derivedKey.toString('hex')); 
       cred.username = username
       cred.hashedpassword = derivedKey.toString('hex')
+
+      console.log(cred);
+    //cred will be sent to the backend 
+    document.cookie = "token=exampletoken;samesite=strict;"
+    document.cookie = "username="+username+";samesite=strict;"
+    document.cookie = "usernamehash="+hash.digest().toString('base64')+";samesite=strict;"
+    document.cookie = "passwordhash="+cred.hashedpassword+";samesite=strict;"
+    navigate.push("/dashboard")
     });
-    console.log(cred);
   };
 
   return (
-    <div className="CreateBook">
+    <div className="Login">
       <div className="container">
         <div className="row">
           <div className="col-md-10 m-auto">
