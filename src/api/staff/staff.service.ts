@@ -45,11 +45,11 @@ export class StaffService {
     return { access_token: token };
   }
 
-  async update(id: string, updateStaffDto: UpdateStaffDto): Promise<Staff | null> {
+  async update(id: string, updateStaffDto: UpdateStaffDto): Promise<Staff> {
     return this.staffModel.findByIdAndUpdate(id, updateStaffDto, { new: true });
   }
 
-  async getProfile(id: string): Promise<Staff |null> {
+  async getProfile(id: string): Promise<Staff> {
     return this.staffModel.findById(id);
   }
 }
