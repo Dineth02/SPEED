@@ -18,8 +18,8 @@ const ModeratorDashboard: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td className="p-2 border">001</td>
-              <td className="p-2 border">Lorem ipsum content here</td>
+              <td className="p-2 border">000001</td>
+              <td className="p-2 border">Description: bibliographic details, etc...</td>
               <td className="p-2 border">Pending</td>
               <td className="p-2 border space-x-2">
                 <button className="bg-green-500 text-white px-2 py-1 rounded">Approve</button>
