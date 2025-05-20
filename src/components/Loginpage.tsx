@@ -1,14 +1,12 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Credentals, DefaultCreds } from "./Credentals";
 
 const LoginpageComponent = () => {
   const navigate = useRouter();
 
-  const cred = DefaultCreds;
-  let username = ''
-  let password = ''
-  let remembered = false
+  let username: string = ''
+  let password: string = ''
+  let remembered: boolean = false
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     if(event.target.name === "username")
@@ -29,8 +27,8 @@ const LoginpageComponent = () => {
     navigate.push("/dashboard")
   }
 
-  const cookieValue = document.cookie.split("; ").find((row) => row.startsWith("username="))?.split("=")[1];
-  const passwordValue = document.cookie.split("; ").find((row) => row.startsWith("password="))?.split("=")[1];
+  const cookieValue: string | undefined = document.cookie.split("; ").find((row) => row.startsWith("username="))?.split("=")[1];
+  const passwordValue: string | undefined = document.cookie.split("; ").find((row) => row.startsWith("password="))?.split("=")[1];
   if(cookieValue != undefined && passwordValue != undefined)
   {
     remembered = true;
