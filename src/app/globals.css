@@ -2,6 +2,7 @@
 
 :root {
   --background: #ffffff;
+  --blue: #5353f5;
   --foreground: #171717;
 }
 
@@ -16,7 +17,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --blue: #5353f5;
   }
+}
+
+.button
+{
+  background: var(--blue);
 }
 
 body {
