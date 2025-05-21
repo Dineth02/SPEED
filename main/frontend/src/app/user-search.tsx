@@ -14,23 +14,23 @@ const UserSearch: React.FC = () => {
   const allArticles: Article[] = [
     {
       _id: '1',
-      title: 'The Future of Artificial Intelligence',
-      description: 'A look into the advancement of AI technologies.',
+      title: 'Testing One',
+      description: 'Testing One Description.',
     },
     {
       _id: '2',
-      title: 'Climate Change and Its Effects',
-      description: 'Exploring the impact of climate change globally.',
+      title: 'Testing Two',
+      description: 'Testing Two Description.',
     },
     {
       _id: '3',
-      title: 'Mental Health Awareness in 2025',
-      description: 'Raising awareness and support strategies for mental health.',
+      title: 'Testing Three',
+      description: 'Testing Three Description.',
     },
     {
       _id: '4',
-      title: 'The Role of Renewable Energy',
-      description: 'How solar and wind power are transforming our future.',
+      title: 'Testing Four',
+      description: 'Testing Four Description.',
     },
   ];
 
