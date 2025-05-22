@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { GetPaperInfo, Paperinfo } from "./Paperinfo";
 
 //assume we have retrive this infomation from the database.
-const addresses: string[] = ['10.5281/zenodo.1005176', '10.5281/zenodo.1005176', '10.5281/zenodo.1005176', '10.5281/zenodo.1005176', '10.5281/zenodo.1005176'];
+const addresses: string[] = ['10.5281/zenodo.1005176', '10.1016/j.jss.2020.110823', '10.1109/TSE.2021.3099532', '10.1145/3395963', '10.1109/MS.2021.3105044', '10.1109/TEM.2022.3216633'];
 let info: Paperinfo = {};
 let selectedindex: number = 0
 
@@ -45,8 +45,12 @@ const DashBoardComponent = () => {
               <h1>SE claim</h1>
               <textarea></textarea>
               <h1>support or against</h1>
+              <input type="radio" name="support" value="support"/> yes <br/>
+              <input type="radio" name="support" value="against"/> against <br/>
               <h1>evedence type</h1>
-              <h1>Comment</h1>
+              <input type="radio" name="strength" value="strong"/> strong <br/>
+              <input type="radio" name="support" value="weak"/> weak <br/>
+              <summary>Comment</summary>
               <textarea></textarea>
               <h1>{selectedindex}out of {addresses.length}</h1>
               <button className="button">submit</button>

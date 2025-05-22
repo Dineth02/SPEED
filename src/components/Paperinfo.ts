@@ -29,7 +29,6 @@ export function GetPaperInfo(address: string): Paperinfo
     returnval.DOI = json.DOI;
     returnval.abstract = json.abstract;
     returnval.version = json.version;
-    console.log(Cite.get);
     returnval.issued = new Date(json.issued['date-parts'][0].join('/'));
     returnval.authors = citeobject.format("data");
     let authors: any[] = json.author;
