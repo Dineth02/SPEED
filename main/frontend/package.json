@@ -13,7 +13,11 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.6.0"
+    "react-router-dom": "^7.6.0",
+    "@citation-js/core": "^0.7.18",
+    "@citation-js/plugin-bibtex": "^0.7.18",
+    "@citation-js/plugin-csl": "^0.7.18",
+    "@citation-js/plugin-doi": "^0.7.18"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
