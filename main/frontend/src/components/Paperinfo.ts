@@ -3,7 +3,7 @@ const { Cite } = require('@citation-js/core');
 // Load plugins
 require('@citation-js/plugin-doi')
 require('@citation-js/plugin-csl')
-
+require('@citation-js/plugin-bibtex')
 /*
 since citation.js dosn't have a typing module
 this typescript file will provide a basic wrapper
