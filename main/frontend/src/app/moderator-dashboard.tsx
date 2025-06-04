@@ -4,7 +4,7 @@ const ModeratorDashboard: React.FC = () => {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-4">Moderator Dashboard</h1>
-      
+
       <div className="bg-white shadow-md rounded p-4 mb-6">
         <h2 className="text-xl font-semibold mb-2">Pending Submissions</h2>
         <table className="w-full border">

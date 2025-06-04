@@ -35,7 +35,7 @@ const AnalystDashboard: React.FC = () => {
         submittedBy: 'Submitter 3',
         status: 'Waiting',
       },
-      
+
     ];
 
     setArticles(exampleArticles);

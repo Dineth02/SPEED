@@ -3,10 +3,10 @@
 //import ModeratorDashboard from "./moderator-dashboard";
 import UserSearch from "./user-search";
 export default function Home() {
-return (
-    <main>
+    return (
+        <main>
 
-<UserSearch />
-</main>
-);
+            <UserSearch />
+        </main>
+    );
 }
