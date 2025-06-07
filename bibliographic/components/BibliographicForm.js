@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.css";
+import styles from "../styles/BibliographicForm.module.css";
 
 function BibliographicForm() {
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ function BibliographicForm() {
   const parseBibTeX = (bibtex) => {
     const fields = {};
     const matches = bibtex.match(/(\w+)\s*=\s*{([^}]*)}/g);
+    
     if (matches) {
       matches.forEach((match) => {
         const [key, value] = match.split("=").map((s) => s.replace(/[{}]/g, "").trim());
@@ -32,12 +33,13 @@ function BibliographicForm() {
   };
 
   const handleFileUpload = (event) => {
-    const file = event.target.files[0];
+    const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
         const bibtexContent = e.target.result;
         const extractedFields = parseBibTeX(bibtexContent);
+
         setFormData((prev) => ({
           ...prev,
           title: extractedFields.title || prev.title,
@@ -63,17 +65,36 @@ function BibliographicForm() {
       body: JSON.stringify(formData),
     });
 
-    alert(`🎉 Submission received!\n\nYour entry for "${formData.title}" has been successfully sent.`);
+    alert(`Submission received!\n\nYour entry for "${formData.title}" has been successfully sent.`);
   };
 
   return (
-    <div className="container">
-      <h1>SPEED Article Submission</h1>
-      <form onSubmit={handleSubmit}>
-        <input name="title" value={formData.title} onChange={handleChange} required />
-        <input name="authors" value={formData.authors} onChange={handleChange} required />
-        <input type="file" accept=".bib" onChange={handleFileUpload} />
-        <button type="submit">Submit</button>
+    <div className={styles.container}>
+      <h1 className={styles.title}>SPEED Article Submission</h1>
+      <p className={styles.description}>Submit bibliographic details for review. No PDFs or links allowed!</p>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.label}>Title:</label>
+        <input className={styles.input} name="title" value={formData.title} onChange={handleChange} required />
+
+        <label className={styles.label}>Authors:</label>
+        <input className={styles.input} name="authors" value={formData.authors} onChange={handleChange} required />
+
+        <label className={styles.label}>Journal Name:</label>
+        <input className={styles.input} name="journalName" value={formData.journalName} onChange={handleChange} required />
+
+        <label className={styles.label}>Year of Publication:</label>
+        <input className={styles.input} type="number" name="publicationYear" value={formData.publicationYear} onChange={handleChange} required />
+
+        <label className={styles.label}>DOI:</label>
+        <input className={styles.input} name="doi" value={formData.doi} onChange={handleChange} placeholder="Enter or upload BibTeX file to auto-fill" required />
+
+        <label className={styles.label}>Email (for approval notification):</label>
+        <input className={styles.input} type="email" name="email" value={formData.email} onChange={handleChange} required />
+
+        <label className={styles.label}>Upload BibTeX File:</label>
+        <input className={styles.fileInput} type="file" accept=".bib" onChange={handleFileUpload} />
+
+        <button className={styles.button} type="submit">Submit</button>
       </form>
     </div>
   );
