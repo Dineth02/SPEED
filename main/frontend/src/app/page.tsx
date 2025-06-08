@@ -1,3 +1,4 @@
+import React from 'react';
 'use client'
 //import AnalystDashboard from "./analyst-dashboard";
 //import ModeratorDashboard from "./moderator-dashboard";
