@@ -9,34 +9,31 @@ const LoginpageComponent = () => {
   let remembered: boolean = false
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if(event.target.name === "username")
-    {
+    if (event.target.name === "username") {
       username = event.target.value
     }
-    if(event.target.name === "password")
-    {
+    if (event.target.name === "password") {
       password = event.target.value
     }
   };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    document.cookie = "username="+username+";samesite=strict;"
-    document.cookie = "password="+password+";samesite=strict;"
-    document.cookie = "autologin="+remembered+";samesite=strict;"
+    document.cookie = "username=" + username + ";samesite=strict;"
+    document.cookie = "password=" + password + ";samesite=strict;"
+    document.cookie = "autologin=" + remembered + ";samesite=strict;"
     navigate.push("/dashboard")
   }
 
   const cookieValue: string | undefined = document.cookie.split("; ").find((row) => row.startsWith("username="))?.split("=")[1];
   const passwordValue: string | undefined = document.cookie.split("; ").find((row) => row.startsWith("password="))?.split("=")[1];
-  if(cookieValue != undefined && passwordValue != undefined)
-  {
+  if (cookieValue != undefined && passwordValue != undefined) {
     remembered = true;
     username = cookieValue;
     password = passwordValue;
-    document.cookie = "username="+username+";samesite=strict;"
-    document.cookie = "password="+password+";samesite=strict;"
-    document.cookie = "autologin="+remembered+";samesite=strict;"
+    document.cookie = "username=" + username + ";samesite=strict;"
+    document.cookie = "password=" + password + ";samesite=strict;"
+    document.cookie = "autologin=" + remembered + ";samesite=strict;"
     navigate.push("/dashboard")
   }
 
@@ -57,7 +54,7 @@ const LoginpageComponent = () => {
                   onChange={onChange}
                 />
               </div>
-              <br/>
+              <br />
               <h4>Password</h4>
               <div className="form-group">
                 <input

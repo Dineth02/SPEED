@@ -20,8 +20,7 @@ export type Paperinfo = {
     authors?: string[];
 };
 
-export function GetPaperInfo(address: string): Paperinfo
-{
+export function GetPaperInfo(address: string): Paperinfo {
     let citeobject = new Cite(address)
     let json = JSON.parse(citeobject.format("data"))[0]
     let returnval: Paperinfo = {};
